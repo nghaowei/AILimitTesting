@@ -70,6 +70,7 @@ class Sniper:
         available = parse_available(msg.raw_text or "")
         wanted = [m for m in self.cfg.meals if available.get(m, 0) > 0]
         if not wanted:
+            log.debug("Post %s: nothing to claim (%r)", msg.id, (msg.raw_text or "")[:60])
             return
         age = (datetime.now(timezone.utc) - msg.date).total_seconds()
         if age > self.cfg.max_post_age:

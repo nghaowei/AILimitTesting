@@ -1,0 +1,11 @@
+# Secrets and login state - never commit these
+.env
+*.session
+*.session-journal
+state.json
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
